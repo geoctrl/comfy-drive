@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { Provider } from 'react-redux';
 import App from '../app';
 
-export default ({store}) => (
+let sup = 'sup';
+
+const Root = ({store}) => (
 	<Provider store={store}>
 		<App />
 	</Provider>
 );
+
+Root.propTypes = {
+	store: PropTypes.object.isRequired
+};
+
+export default Root;

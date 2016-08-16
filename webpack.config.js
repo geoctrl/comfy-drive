@@ -49,6 +49,9 @@ var config = {
 		return [require('autoprefixer')];
 	}
 };
+if (isDev) {
+	config.devtool = 'source-map';
+}
 
 if (isProd) {
 	config.output.path = path.resolve(__dirname, 'dist');
