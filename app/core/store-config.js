@@ -13,8 +13,7 @@ const storeConfig = () => {
 	}
 
 	const finalCreateStore = compose(
-			applyMiddleware.apply(null, middlewares),
-			window.devToolsExtension ? window.devToolsExtension() : f => f
+			applyMiddleware.apply(null, middlewares)
 	)(createStore);
 
 	let store = finalCreateStore(reducers);
