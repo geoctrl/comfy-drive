@@ -1,13 +1,24 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as fileActions from './actions/file-actions';
+import * as fileActions from '../../actions/file-actions';
+
+import Nav from './components/nav';
+import Path from './components/path';
 
 export default class App extends React.Component {
+
+
+	// TODO: we need to authorize access before rendering
+
+
 	render() {
 		console.log(this.props);
 		return (
-				<div>This is the app</div>
+				<div className="app">
+					<Nav />
+					<Path />
+				</div>
 		)
 	}
 }

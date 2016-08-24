@@ -1,0 +1,13 @@
+
+// ---------------------------------------------
+// utility classes for easy layouts
+// ---------------------------------------------
+
+
+// assumption that parent has width
+.ellipsis {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+

@@ -1,0 +1,25 @@
+
+.app-nav {
+	border-bottom: solid 1px $color-grey-75;
+	background-color: $color-grey-25;
+	padding: 6px;
+}
+
+
+.nav-button {
+	font-size: 12px;
+	border: none;
+	background: none;
+	height: 30px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-right: 4px;
+
+	&:hover {
+		background-color: $color-grey-75;
+	}
+
+	&:active, .active {
+		background-color: darken($color-grey-75, 2%);
+	}
+}
