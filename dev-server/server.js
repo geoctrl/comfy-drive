@@ -15,8 +15,8 @@ require('bogus-api').create({
 
 	priorityRoutes: function(server) {
 
-		server.get('/rest/folder/:id', function(req, res, next) {
-			res.status(200).json(getResource('folder/' + req.params.id + '_get'));
+		server.get('/rest/files/:id', function(req, res, next) {
+			res.status(200).json(getResource('get-file-' + req.params.id));
 		});
 
 

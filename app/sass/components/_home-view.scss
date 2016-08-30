@@ -1,0 +1,78 @@
+.view-grid {
+	padding: 20px;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.view-grid__file {
+	margin: 2px;
+	border-radius: $border-radius;
+	cursor: default;
+	width: 120px;
+	float: left;
+	user-select: none;
+
+	> .view-grid__file-contain {
+		padding: 10px;
+
+		&.active {
+			background-color: $color-accent-400;
+		}
+	}
+}
+
+.view-grid__file-icon {
+	height: 50px;
+	width: 50px;
+	margin: 0 auto;
+
+	svg {
+		width: 50px;
+		display: block;
+	}
+}
+
+.view-grid__file-name {
+	text-align: center;
+	font-size: 12px;
+	max-height: 38px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	padding-bottom: 3px;
+}
+
+
+.view-toolbar {
+	margin: 20px 20px 10px 20px;
+	@include clearfix;
+
+	button {
+		border: solid 1px transparent;
+
+		svg {
+			vertical-align: text-top;
+		}
+
+		&:hover {
+			background-color: transparent;
+			border-color: $color-primary-100;
+
+			svg.icon {
+				fill: $color-primary-500;
+			}
+		}
+	}
+}
+
+.view-toolbar__left {
+	padding: 5px;
+	border: 1px solid $color-primary-100;
+	background-color: lighten($color-primary-100, 7%);
+	border-radius: $border-radius;
+	float: left;
+}
+
+.view-toolbar__right {
+	padding: 5px;
+	float: right;
+}

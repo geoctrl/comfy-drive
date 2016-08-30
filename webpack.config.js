@@ -19,7 +19,7 @@ var config = {
 			{
 				test: /\.js(x)?$/,
 				loaders: ['babel', /**'eslint-loader'**/],
-				include: includeFolders
+				include: /(app|node_modules\/rxjs)/
 			},
 			{
 				test: /\.scss$/,
@@ -32,6 +32,12 @@ var config = {
 				include: includeFolders
 			}
 		]
+	},
+
+	resolve: {
+		alias: {
+			'rxjs': 'rxjs-es'
+		}
 	},
 
 	plugins: [

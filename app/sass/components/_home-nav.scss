@@ -1,8 +1,9 @@
 
 .app-nav {
+	border-top: solid 3px #58488d;
 	border-bottom: solid 1px $color-grey-75;
 	background-color: $color-grey-25;
-	padding: 6px;
+	padding: 0 6px;
 }
 
 
@@ -13,10 +14,11 @@
 	height: 30px;
 	padding-left: 10px;
 	padding-right: 10px;
-	margin-right: 4px;
+	border-radius: 0;
+	cursor: default;
 
 	&:hover {
-		background-color: $color-grey-75;
+		background-color: transparent;
 	}
 
 	&:active, .active {

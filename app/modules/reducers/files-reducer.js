@@ -1,17 +1,17 @@
 import _merge from 'lodash/merge';
+import stateHistory from '../../core/state-history';
 
 const initialState = {
+	id: null,
+	type: null,
+	name: null,
+	activeFile: {},
 	children: [],
-	folder: {},
-	path: {},
+	dirPath: [],
 	status: 'pending'
 };
 
-let _children;
-
-function mergeState(state, newState) {
-	return _merge({}, state, newState);
-}
+const mergeState = (...states) => _merge({}, ...states);
 
 export default function (state=initialState, action) {
 
@@ -27,7 +27,7 @@ export default function (state=initialState, action) {
 			});
 
 		case 'LOAD_FOLDER_FULFILLED':
-			return mergeState(state, {
+			return mergeState(state, action.payload, {
 				status: 'fulfilled'
 			});
 
@@ -39,6 +39,19 @@ export default function (state=initialState, action) {
 
 
 		// ---------------------
+		// SELECT_ACTIVE_FILE
+		// ---------------------
+
+		case 'SET_ACTIVE_FILE':
+			return mergeState(state, {
+				activeFile: action.data,
+				status: 'fulfilled'
+			});
+
+
+
+
+			// ---------------------
 		// CREATE FOLDER
 		// ---------------------
 

@@ -39,7 +39,7 @@
 
 
 // Colors
-$color-primary-500: #3667ae;
+$color-primary-500: #6092c2;
 $color-primary-100: lighten($color-primary-500, 32%);
 $color-primary-200: lighten($color-primary-500, 24%);
 $color-primary-300: lighten($color-primary-500, 16%);
@@ -48,6 +48,17 @@ $color-primary-600: darken($color-primary-500, 8%);
 $color-primary-700: darken($color-primary-500, 16%);
 $color-primary-800: darken($color-primary-500, 24%);
 $color-primary-900: darken($color-primary-500, 32%);
+
+// Colors
+$color-accent-500: #fff58b;
+$color-accent-100: lighten($color-accent-500, 32%);
+$color-accent-200: lighten($color-accent-500, 24%);
+$color-accent-300: lighten($color-accent-500, 16%);
+$color-accent-400: lighten($color-accent-500, 8%);
+$color-accent-600: darken($color-accent-500, 8%);
+$color-accent-700: darken($color-accent-500, 16%);
+$color-accent-800: darken($color-accent-500, 24%);
+$color-accent-900: darken($color-accent-500, 32%);
 
 $color-grey-10: #f9f9f9 !default;
 $color-grey-25: #f3f3f3 !default;

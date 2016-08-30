@@ -1,23 +1,35 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as fileActions from '../../actions/file-actions';
+import * as fileActions from '../../modules/actions/file-actions';
 
-import Nav from './components/nav';
-import Path from './components/path';
+import Nav from '../../components/nav';
+import Toolbar from '../../components/toolbar';
+import View from '../../components/view';
 
 export default class App extends React.Component {
+	constructor() {
+		super();
+
+		this.state = {
+
+		};
+	}
 
 
 	// TODO: we need to authorize access before rendering
 
+	componentDidMount() {
+		this.props.actions.selectFolder(1); // todo: add admin feature to choose a default location vs last visited
+	}
 
 	render() {
-		console.log(this.props);
+		let { files } = this.props;
 		return (
 				<div className="app">
-					<Nav />
-					<Path />
+					<Nav { ...this.props } />
+					<Toolbar />
+					<View { ...this.props } />
 				</div>
 		)
 	}
