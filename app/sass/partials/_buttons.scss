@@ -17,6 +17,7 @@ $btn-transition-duration: 150ms;
 			border $btn-transition-duration ease;
 	text-decoration: none;
 	display: inline-block;
+	vertical-align: middle;
 
 	svg.icon {
 		height: 16px;
@@ -55,6 +56,10 @@ $btn-transition-duration: 150ms;
 				fill: $color-grey-400;
 			}
 		}
+	}
+
+	&.hidden {
+		display: none;
 	}
 }
 

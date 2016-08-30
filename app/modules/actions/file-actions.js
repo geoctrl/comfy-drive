@@ -9,9 +9,9 @@ export function selectFolder(folderId) {
 	};
 }
 
-export function setActiveFile(file) {
+export function setSelection(files) {
 	return {
-		type: 'SET_ACTIVE_FILE',
-		data: file
+		type: 'SET_SELECTION',
+		data: files
 	}
 }

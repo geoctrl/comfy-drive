@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom';
 import storeConfig from './core/store-config';
 import { Provider } from 'react-redux';
 import { Router, Route, browserHistory} from 'react-router';
+
 import App from './pages/home';
 import Login from './pages/login';
 import Admin from './pages/admin';

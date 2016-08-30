@@ -2,13 +2,14 @@ import _merge from 'lodash/merge';
 import stateHistory from '../../core/state-history';
 
 const initialState = {
-	id: null,
-	type: null,
-	name: null,
-	activeFile: {},
-	children: [],
-	dirPath: [],
-	status: 'pending'
+	id: null,               // current file id
+	type: null,             // type of file (extension or 'dir')
+	name: null,             // name of file
+	selectionAction: null,  // current action taken on selection (only one at a time)
+	selection: [],          // current files selected
+	children: [],           // all files within current directory
+	dirPath: [],            // path to root
+	status: 'pending'       // show loading
 };
 
 const mergeState = (...states) => _merge({}, ...states);
@@ -17,7 +18,7 @@ export default function (state=initialState, action) {
 
 	switch (action.type) {
 
-		// ---------------------
+		// ---------------------å
 		// LOAD_FOLDER
 		// ---------------------
 
@@ -39,12 +40,12 @@ export default function (state=initialState, action) {
 
 
 		// ---------------------
-		// SELECT_ACTIVE_FILE
+		// SET_SELECTION
 		// ---------------------
 
-		case 'SET_ACTIVE_FILE':
+		case 'SET_SELECTION':
 			return mergeState(state, {
-				activeFile: action.data,
+				selection: action.data,
 				status: 'fulfilled'
 			});
 

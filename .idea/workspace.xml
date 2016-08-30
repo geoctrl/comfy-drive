@@ -2,39 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6005af2d-893a-4a34-b26d-61b7c46c31a8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/icons/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/icons/master.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/toolbar/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/toolbar/toolbar-map.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/view/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/view/view-grid/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/view/view-grid/view-grid-name.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/sass/components/_home-view.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dev-server/resources/get-file-1.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/comfy_drive_node_modules.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/icons/content-cut.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/components/app/components/path/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dev-server/resources/folder/1_get.js" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/actions/file-actions.js" afterPath="$PROJECT_DIR$/app/modules/actions/file-actions.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/actions/file-api.js" afterPath="$PROJECT_DIR$/app/modules/actions/file-api.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/components/admin/index.js" afterPath="$PROJECT_DIR$/app/pages/admin/index.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/components/app/components/nav/index.js" afterPath="$PROJECT_DIR$/app/components/nav/index.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/components/app/index.js" afterPath="$PROJECT_DIR$/app/pages/home/index.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/components/login/index.js" afterPath="$PROJECT_DIR$/app/pages/login/index.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/reducers/files-reducer.js" afterPath="$PROJECT_DIR$/app/modules/reducers/files-reducer.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/reducers/index.js" afterPath="$PROJECT_DIR$/app/modules/reducers/index.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/sass/components/_app-nav.scss" afterPath="$PROJECT_DIR$/app/sass/components/_home-nav.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/sass/components/_app-path.scss" afterPath="$PROJECT_DIR$/app/sass/components/_home-path.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/comfy-drive.iml" afterPath="$PROJECT_DIR$/.idea/comfy-drive.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/pages/home/header/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/pages/home/header/toolbar/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/pages/home/view/click-drag-select/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/sass/components/_home-header.scss" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/components/nav/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/components/toolbar/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/sass/components/_home-nav.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/sass/components/_home-path.scss" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/components/toolbar/toolbar-map.js" afterPath="$PROJECT_DIR$/app/pages/home/header/toolbar/toolbar-map.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/components/view/index.js" afterPath="$PROJECT_DIR$/app/pages/home/view/index.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/components/view/view-grid/index.js" afterPath="$PROJECT_DIR$/app/pages/home/view/view-grid/index.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/components/view/view-grid/view-grid-name.js" afterPath="$PROJECT_DIR$/app/pages/home/view/view-grid/view-grid-name.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/core/store-config.js" afterPath="$PROJECT_DIR$/app/core/store-config.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/icons/master.svg" afterPath="$PROJECT_DIR$/app/components/icons/master.svg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/main.js" afterPath="$PROJECT_DIR$/app/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/modules/actions/file-actions.js" afterPath="$PROJECT_DIR$/app/modules/actions/file-actions.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/modules/reducers/files-reducer.js" afterPath="$PROJECT_DIR$/app/modules/reducers/files-reducer.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/pages/home/index.js" afterPath="$PROJECT_DIR$/app/pages/home/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/sass/components/_home-view.scss" afterPath="$PROJECT_DIR$/app/sass/components/_home-view.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/sass/components/_index.scss" afterPath="$PROJECT_DIR$/app/sass/components/_index.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/sass/partials/_base.scss" afterPath="$PROJECT_DIR$/app/sass/partials/_base.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/sass/partials/_buttons.scss" afterPath="$PROJECT_DIR$/app/sass/partials/_buttons.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/sass/partials/_variables.scss" afterPath="$PROJECT_DIR$/app/sass/partials/_variables.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dev-server/server.js" afterPath="$PROJECT_DIR$/dev-server/server.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webpack.config.js" afterPath="$PROJECT_DIR$/webpack.config.js" />
     </list>
@@ -59,53 +48,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="toolbar-map.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/components/toolbar/toolbar-map.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/components/toolbar/index.js">
+        <entry file="file://$PROJECT_DIR$/app/pages/home/view/view-grid/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_buttons.scss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/sass/partials/_buttons.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1686">
-              <caret line="228" column="0" selection-start-line="228" selection-start-column="0" selection-end-line="228" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/components/icons/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="30" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/components/view/view-grid/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="48" selection-start-line="16" selection-start-column="48" selection-end-line="16" selection-end-column="48" />
+            <state relative-caret-position="960">
+              <caret line="64" column="44" selection-start-line="64" selection-start-column="44" selection-end-line="64" selection-end-column="44" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -116,8 +63,8 @@
       <file leaf-file-name="master.svg" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/components/icons/master.svg">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+            <state relative-caret-position="135">
+              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -126,18 +73,8 @@
       <file leaf-file-name="_home-view.scss" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/sass/components/_home-view.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="501">
-              <caret line="75" column="15" selection-start-line="75" selection-start-column="15" selection-end-line="75" selection-end-column="15" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_variables.scss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/sass/partials/_variables.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="54" column="51" selection-start-line="54" selection-start-column="51" selection-end-line="54" selection-end-column="51" />
+            <state relative-caret-position="570">
+              <caret line="38" column="36" selection-start-line="38" selection-start-column="36" selection-end-line="38" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -151,15 +88,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/sass/mixins/_grid-framework.scss" />
-        <option value="$PROJECT_DIR$/app/sass/mixins/_grid.scss" />
-        <option value="$PROJECT_DIR$/app/sass/mixins/_clearfix.scss" />
-        <option value="$PROJECT_DIR$/app/sass/partials/_reboot.scss" />
-        <option value="$PROJECT_DIR$/app/sass/mixins/_breakpoints.scss" />
-        <option value="$PROJECT_DIR$/app/sass/mixins/_pulls.scss" />
-        <option value="$PROJECT_DIR$/app/sass/mixins/_index.scss" />
-        <option value="$PROJECT_DIR$/app/sass/utilities/_index.scss" />
-        <option value="$PROJECT_DIR$/app/sass/partials/_normalize.scss" />
         <option value="$PROJECT_DIR$/app/sass/main.scss" />
         <option value="$PROJECT_DIR$/app/components/app/components/nav/index.js" />
         <option value="$PROJECT_DIR$/app/components/app/components/path/index.js" />
@@ -168,7 +96,6 @@
         <option value="$PROJECT_DIR$/dev-server/resources/folder/1_get.js" />
         <option value="$PROJECT_DIR$/dev-server/server.js" />
         <option value="$PROJECT_DIR$/app/actions/file-actions.js" />
-        <option value="$PROJECT_DIR$/webpack.config.js" />
         <option value="$PROJECT_DIR$/app/components/app/index.js" />
         <option value="$PROJECT_DIR$/app/modules/index.js" />
         <option value="$PROJECT_DIR$/app/modules/get-file-epic.js" />
@@ -176,32 +103,42 @@
         <option value="$PROJECT_DIR$/app/core/store-config.js" />
         <option value="$PROJECT_DIR$/app/modules/actions/file-api.js" />
         <option value="$PROJECT_DIR$/app/pages/admin/index.js" />
-        <option value="$PROJECT_DIR$/app/sass/components/_home-path.scss" />
-        <option value="$PROJECT_DIR$/app/sass/components/_index.scss" />
-        <option value="$PROJECT_DIR$/app/sass/components/_home-nav.scss" />
         <option value="$PROJECT_DIR$/app/components/icon-helper/index.js" />
         <option value="$PROJECT_DIR$/app/assets/color-icons/folder.svg" />
-        <option value="$PROJECT_DIR$/app/main.js" />
         <option value="$PROJECT_DIR$/dev-server/resources/get-file-1.js" />
-        <option value="$PROJECT_DIR$/app/modules/actions/file-actions.js" />
-        <option value="$PROJECT_DIR$/app/modules/reducers/files-reducer.js" />
         <option value="$PROJECT_DIR$/app/components/view/view-grid.js" />
         <option value="$PROJECT_DIR$/app/components/view/view-grid/view-grid.js" />
-        <option value="$PROJECT_DIR$/app/components/view/index.js" />
         <option value="$PROJECT_DIR$/app/components/view/view-grid/view-grid-name.js" />
-        <option value="$PROJECT_DIR$/app/sass/partials/_base.scss" />
         <option value="$PROJECT_DIR$/app/components/path/index.js" />
-        <option value="$PROJECT_DIR$/app/components/nav/index.js" />
-        <option value="$PROJECT_DIR$/app/pages/home/index.js" />
         <option value="$PROJECT_DIR$/app/components/toolbar/toolbar-map.js" />
         <option value="$PROJECT_DIR$/app/assets/icons/content-cut.svg" />
-        <option value="$PROJECT_DIR$/app/components/view/view-grid/index.js" />
         <option value="$PROJECT_DIR$/app/components/icons/index.js" />
         <option value="$PROJECT_DIR$/app/sass/partials/_variables.scss" />
+        <option value="$PROJECT_DIR$/app/modules/actions/file-actions.js" />
+        <option value="$PROJECT_DIR$/app/main.js" />
+        <option value="$PROJECT_DIR$/app/modules/reducers/files-reducer.js" />
+        <option value="$PROJECT_DIR$/app/components/toolbar/index.js" />
+        <option value="$PROJECT_DIR$/app/components/view/click-drag-select/index.js" />
+        <option value="$PROJECT_DIR$/app/components/view/view-grid/index.js" />
+        <option value="$PROJECT_DIR$/app/components/view/index.js" />
+        <option value="$PROJECT_DIR$/app/sass/components/_home-path.scss" />
+        <option value="$PROJECT_DIR$/app/sass/components/_index.scss" />
+        <option value="$PROJECT_DIR$/app/sass/partials/_base.scss" />
+        <option value="$PROJECT_DIR$/app/components/nav/index.js" />
+        <option value="$PROJECT_DIR$/app/sass/components/_home-nav.scss" />
+        <option value="$PROJECT_DIR$/app/pages/home/toolbar/index.js" />
+        <option value="$PROJECT_DIR$/app/pages/home/home-header/index.js" />
+        <option value="$PROJECT_DIR$/app/pages/home/index.js" />
+        <option value="$PROJECT_DIR$/app/pages/home/header/toolbar/index.js" />
+        <option value="$PROJECT_DIR$/app/pages/home/header/index.js" />
+        <option value="$PROJECT_DIR$/app/sass/components/_home-header.scss" />
         <option value="$PROJECT_DIR$/app/sass/partials/_buttons.scss" />
+        <option value="$PROJECT_DIR$/webpack.config.js" />
+        <option value="$PROJECT_DIR$/app/pages/home/view/click-drag-select/index.js" />
+        <option value="$PROJECT_DIR$/app/pages/home/view/index.js" />
         <option value="$PROJECT_DIR$/app/sass/components/_home-view.scss" />
         <option value="$PROJECT_DIR$/app/components/icons/master.svg" />
-        <option value="$PROJECT_DIR$/app/components/toolbar/index.js" />
+        <option value="$PROJECT_DIR$/app/pages/home/view/view-grid/index.js" />
       </list>
     </option>
   </component>
@@ -216,8 +153,8 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
-    <option name="width" value="840" />
-    <option name="height" value="1023" />
+    <option name="width" value="1280" />
+    <option name="height" value="1413" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -244,6 +181,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -292,28 +230,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="sass" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="comfy-drive" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="comfy-drive" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sass" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="partials" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -393,7 +309,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
+              <option name="myItemId" value="pages" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="home" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -415,7 +335,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
+              <option name="myItemId" value="pages" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="home" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -445,59 +369,18 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="toolbar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="comfy-drive" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="comfy-drive" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="comfy-drive" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="comfy-drive" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="icons" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../comfy-api" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../tute/clingie_zend" />
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
     <property name="javascript.nodejs.core.library.configured.version" value="5.5.0" />
@@ -514,11 +397,11 @@
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/pages/home/home-header" />
+      <recent name="$PROJECT_DIR$/app/pages/home" />
+      <recent name="$PROJECT_DIR$/app/components/path" />
       <recent name="$PROJECT_DIR$/app/components/view/view-grid" />
       <recent name="$PROJECT_DIR$/app" />
-      <recent name="$PROJECT_DIR$/app/modules" />
-      <recent name="$PROJECT_DIR$/dev-server/resources" />
-      <recent name="$PROJECT_DIR$/app/components/app" />
     </key>
   </component>
   <component name="RunManager">
@@ -568,17 +451,17 @@
     <option name="remove_strategy" value="false" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="840" height="1023" extended-state="0" />
+    <frame x="0" y="23" width="1280" height="1413" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2869353" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18665607" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32882413" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20730397" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14610144" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -607,13 +490,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/sass/partials/_code.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="45" column="23" selection-start-line="45" selection-start-column="23" selection-end-line="45" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/sass/mixins/_grid.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1245">
@@ -695,15 +571,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="17" column="31" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webpack.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="41" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -720,39 +587,22 @@
         <state relative-caret-position="-435">
           <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
           <folding>
-            <marker date="1472394768000" expanded="true" signature="0:2108" ph="{&quot;name&quot;: &quot;comfy-drive&quot;...}" />
-            <marker date="1472394768000" expanded="true" signature="110:323" ph="{&quot;start&quot;: &quot;webpack-dev-server --history-api-fallback --content-base app --progress --inline --hot&quot;...}" />
-            <marker date="1472394768000" expanded="true" signature="341:425" ph="{&quot;type&quot;: &quot;git&quot;...}" />
-            <marker date="1472394768000" expanded="true" signature="499:563" ph="{&quot;url&quot;: &quot;https://github.com/geoctrl/comfy-drive/issues&quot;...}" />
-            <marker date="1472394768000" expanded="true" signature="649:1703" ph="{&quot;autobind-decorator&quot;: &quot;^1.3.3&quot;...}" />
-            <marker date="1472394768000" expanded="true" signature="1723:2106" ph="{&quot;axios&quot;: &quot;^0.13.1&quot;...}" />
+            <marker date="1472567282000" expanded="true" signature="0:2139" ph="{&quot;name&quot;: &quot;comfy-drive&quot;...}" />
+            <marker date="1472567282000" expanded="true" signature="110:323" ph="{&quot;start&quot;: &quot;webpack-dev-server --history-api-fallback --content-base app --progress --inline --hot&quot;...}" />
+            <marker date="1472567282000" expanded="true" signature="341:425" ph="{&quot;type&quot;: &quot;git&quot;...}" />
+            <marker date="1472567282000" expanded="true" signature="499:563" ph="{&quot;url&quot;: &quot;https://github.com/geoctrl/comfy-drive/issues&quot;...}" />
+            <marker date="1472567282000" expanded="true" signature="649:1703" ph="{&quot;autobind-decorator&quot;: &quot;^1.3.3&quot;...}" />
+            <marker date="1472567282000" expanded="true" signature="1723:2137" ph="{&quot;axios&quot;: &quot;^0.13.1&quot;...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/modules/get-file-epic.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="2" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/modules/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/modules/get-file-epic.js" />
+    <entry file="file://$PROJECT_DIR$/app/modules/index.js" />
     <entry file="file://$PROJECT_DIR$/app/modules/reducers/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#40#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -786,7 +636,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -802,7 +651,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -814,51 +662,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/sass/components/_home-path.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="5" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/sass/components/_index.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/sass/components/_home-nav.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="24" column="49" selection-start-line="24" selection-start-column="49" selection-end-line="24" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/color-icons/folder.svg">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="29" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/color-icons/folder.svg" />
     <entry file="file://$PROJECT_DIR$/dev-server/resources/get-file-1.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="69" column="25" selection-start-line="69" selection-start-column="25" selection-end-line="69" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -866,44 +674,55 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/view/view-grid/view-grid-item.js" />
+    <entry file="file://$PROJECT_DIR$/app/pages/home/header/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#26#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/icons/content-cut.svg" />
+    <entry file="file://$PROJECT_DIR$/app/sass/partials/_variables.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="54" column="51" selection-start-line="54" selection-start-column="51" selection-end-line="54" selection-end-column="51" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/modules/actions/file-actions.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
+        <state relative-caret-position="165">
+          <caret line="11" column="28" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/modules/reducers/files-reducer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
+        <state relative-caret-position="285">
+          <caret line="20" column="29" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
           <folding>
             <element signature="e#0#34#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/view/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="33" selection-start-line="1" selection-start-column="33" selection-end-line="1" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/view/view-grid/view-grid-item.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/sass/components/_home-path.scss" />
     <entry file="file://$PROJECT_DIR$/app/sass/partials/_base.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -912,41 +731,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/path/index.js">
+    <entry file="file://$PROJECT_DIR$/app/sass/components/_index.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="15">
+          <caret line="1" column="20" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/pages/home/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+        <state relative-caret-position="450">
+          <caret line="37" column="33" selection-start-line="37" selection-start-column="33" selection-end-line="37" selection-end-column="33" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/nav/index.js">
+    <entry file="file://$PROJECT_DIR$/app/pages/home/header/toolbar/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
+        <state relative-caret-position="15">
+          <caret line="1" column="30" selection-start-line="1" selection-start-column="30" selection-end-line="1" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/view/view-grid/view-grid-name.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="28" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/toolbar/toolbar-map.js">
+    <entry file="file://$PROJECT_DIR$/app/pages/home/header/toolbar/toolbar-map.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
@@ -954,11 +765,63 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/icons/content-cut.svg">
+    <entry file="file://$PROJECT_DIR$/app/pages/home/header/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="24" selection-start-line="1" selection-start-column="24" selection-end-line="1" selection-end-column="24" />
+        <state relative-caret-position="345">
+          <caret line="23" column="22" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#26#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/sass/partials/_buttons.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webpack.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="885">
+          <caret line="59" column="1" selection-start-line="59" selection-start-column="1" selection-end-line="59" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/sass/components/_home-header.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/home/view/click-drag-select/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="56" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/home/view/view-grid/view-grid-name.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="28" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/home/view/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="645">
+          <caret line="51" column="17" selection-start-line="51" selection-start-column="17" selection-end-line="51" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -970,52 +833,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/sass/partials/_variables.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="54" column="51" selection-start-line="54" selection-start-column="51" selection-end-line="54" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/view/view-grid/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="48" selection-start-line="16" selection-start-column="48" selection-end-line="16" selection-end-column="48" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/sass/partials/_buttons.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1686">
-          <caret line="228" column="0" selection-start-line="228" selection-start-column="0" selection-end-line="228" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/sass/components/_home-view.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="501">
-          <caret line="75" column="15" selection-start-line="75" selection-start-column="15" selection-end-line="75" selection-end-column="15" />
+        <state relative-caret-position="570">
+          <caret line="38" column="36" selection-start-line="38" selection-start-column="36" selection-end-line="38" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/components/icons/master.svg">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+        <state relative-caret-position="135">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/toolbar/index.js">
+    <entry file="file://$PROJECT_DIR$/app/pages/home/view/view-grid/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+        <state relative-caret-position="960">
+          <caret line="64" column="44" selection-start-line="64" selection-start-column="44" selection-end-line="64" selection-end-column="44" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>

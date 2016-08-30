@@ -56,7 +56,7 @@ var config = {
 	}
 };
 if (isDev) {
-	config.devtool = 'source-map';
+	// config.devtool = 'source-map';
 }
 
 if (isProd) {

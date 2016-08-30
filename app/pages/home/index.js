@@ -2,10 +2,10 @@ import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as fileActions from '../../modules/actions/file-actions';
+import ReactTooltip from 'react-tooltip';
 
-import Nav from '../../components/nav';
-import Toolbar from '../../components/toolbar';
-import View from '../../components/view';
+import Header from './header';
+import View from './view';
 
 export default class App extends React.Component {
 	constructor() {
@@ -27,8 +27,8 @@ export default class App extends React.Component {
 		let { files } = this.props;
 		return (
 				<div className="app">
-					<Nav { ...this.props } />
-					<Toolbar />
+					<ReactTooltip effect="solid" class={'view-toolbar__tooltip'} place="top" />
+					<Header { ...this.props } />
 					<View { ...this.props } />
 				</div>
 		)

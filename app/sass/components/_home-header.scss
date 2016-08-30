@@ -1,0 +1,110 @@
+
+.app {
+	display: flex;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	flex-direction: column;
+}
+
+.home-header {
+	height: 66px;
+	min-height: 66px;
+	flex-grow: 0;
+	font-size: 16px;
+	border-bottom: solid 1px $color-grey-75;
+	cursor: default;
+
+
+	span > span, a {
+		display: inline-block;
+		line-height: 1.6;
+		padding: 0 4px;
+		color: $color-grey-500;
+	}
+
+	a:hover {
+		color: $brand-info;
+	}
+}
+
+.home-header__path {
+	float: left;
+	margin: 20px 0 0 20px;
+
+}
+
+.view-toolbar {
+	float: right;
+	padding: 10px 20px;
+	height: 64px;
+	min-height: 64px;
+
+	button {
+		border: solid 1px transparent;
+
+		svg {
+			vertical-align: text-top;
+		}
+
+		&:hover {
+			background-color: transparent;
+			border-color: $color-primary-100;
+
+			svg.icon {
+				fill: $color-primary-500;
+			}
+		}
+	}
+}
+
+.view-toolbar__left {
+	padding: 5px;
+	border: 1px solid $color-primary-100;
+	background-color: lighten($color-primary-100, 7%);
+	border-radius: $border-radius;
+	float: right;
+	margin-right: 10px;
+	visibility: hidden;
+
+	&.active {
+		visibility: visible;
+	}
+}
+
+.view-toolbar__right {
+	padding: 5px;
+	border: 1px solid transparent;
+	float: right;
+}
+
+.view-toolbar__count {
+	margin-left: 10px;
+	margin-right: 10px;
+	font-size: 12px;
+	color: $color-grey-500;
+}
+
+.view-toolbar__tooltip {
+	background-color: $color-grey-900 !important;
+	opacity: 1 !important;
+	padding: 4px 8px !important;
+
+	&.place-bottom:after {
+		border-bottom-color: $color-grey-900 !important;
+	}
+
+	&.place-top:after {
+		border-top-color: $color-grey-900 !important;
+	}
+
+	&.place-right:after {
+		border-right-color: $color-grey-900 !important;
+	}
+
+	&.place-left:after {
+		border-left-color: $color-grey-900 !important;
+	}
+}
