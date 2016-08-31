@@ -4,7 +4,6 @@ import ClickDragSelect from './click-drag-select';
 
 
 const doubleClickDuration = 300; // in milliseconds
-const fileClassName = 'view-grid__file-contain';
 let doubleClick = 0;
 
 
@@ -13,6 +12,7 @@ class View extends React.Component {
 		super(...props);
 
 		this.state = {
+			fileClassName: 'view-grid__file-contain',
 			clickSelect: false,
 			clickOrigin: {
 				x: 0,
@@ -48,7 +48,7 @@ class View extends React.Component {
 
 	// return file id from data-key attribute
 	isFile(node) {
-		if ((' '+node.className+' ').indexOf(' '+fileClassName+' ') > -1) {
+		if ((' '+node.className+' ').indexOf(' '+this.state.fileClassName+' ') > -1) {
 			return node.getAttribute('data');
 		} else if (node.parentNode) {
 			return this.isFile(node.parentNode);
