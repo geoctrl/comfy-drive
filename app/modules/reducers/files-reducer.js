@@ -13,6 +13,7 @@ const initialState = {
 };
 
 const mergeState = (...states) => _merge({}, ...states);
+let newState;
 
 export default function (state=initialState, action) {
 
@@ -44,9 +45,18 @@ export default function (state=initialState, action) {
 		// ---------------------
 
 		case 'SET_SELECTION':
+			newState =  mergeState(state);
+			newState.selection = action.data;
+			return newState;
+
+
+		// ---------------------
+		// UPDATE_SELECTION
+		// ---------------------
+
+		case 'UPDATE_SELECTION':
 			return mergeState(state, {
-				selection: action.data,
-				status: 'fulfilled'
+				selectionAction: action.data
 			});
 
 

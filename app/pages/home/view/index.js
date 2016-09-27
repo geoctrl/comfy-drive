@@ -2,10 +2,8 @@ import React, { PropTypes } from 'react';
 import ViewGrid from './view-grid';
 import ClickDragSelect from './click-drag-select';
 
-
 const doubleClickDuration = 300; // in milliseconds
 let doubleClick = 0;
-
 
 class View extends React.Component {
 	constructor(...props) {
@@ -25,14 +23,34 @@ class View extends React.Component {
 		};
 	}
 
+	/**
+	 * get file by id
+	 * helper function to get file
+	 * @param fileId
+	 * @return {*}
+	 */
 	getFileById(fileId) {
 		return this.props.files.children.filter(child => {
 			return child.id == fileId;
 		})[0];
 	}
 
+	/**
+	 * click file
+	 * handle single and double clicks
+	 * @param fileId
+	 * @param e {event}
+	 */
 	clickFile(fileId, e) {
-		this.props.actions.setSelection([this.getFileById(fileId)]);
+
+
+		// wait for 2 milliseconds - is the mouse still down?
+		let newSelection = [this.getFileById(fileId)];
+		if (e.ctrlKey || e.metaKey) {
+			newSelection = newSelection.concat(this.props.files.selection);
+			console.log(newSelection, this.props.files.selection);
+		}
+		this.props.actions.setSelection(newSelection);
 
 		if (doubleClick === 0) {
 			// single click
@@ -42,6 +60,7 @@ class View extends React.Component {
 			doubleClick++;
 		} else {
 			// double click
+			console.log('double click')
 
 		}
 	}
@@ -59,23 +78,46 @@ class View extends React.Component {
 
 
 	mouseDownHandler(e) {
+		// handle left mouse click
+		if (e.nativeEvent.which != 3) {
 
-		let singleFileId = this.isFile(e.target);
+			// keyboard bindings
+			let ctrlKey = e.ctrlKey || e.metaKey;
+			let shiftKey = e.shift;
 
-		if (singleFileId) {
-			this.clickFile(singleFileId, e);
-		} else {
-			this.setState({
-				clickSelect: true,
-				clickOrigin: {
-					x: e.clientX,
-					y: e.clientY
-				},
-				clickEnd: {
-					x: e.clientX,
-					y: e.clientY
+			if (ctrlKey && !shiftKey) {
+				// select one-per
+
+			}  else if (shiftKey && !ctrlKey) {
+				// select in-row
+
+			} else {
+				// if drag, select
+
+				// else wait for mouse up
+
+			}
+			let singleFileId = this.isFile(e.target);
+			if (singleFileId) {
+				this.clickFile(singleFileId, e);
+			} else {
+				if (this.props.files.selection.length) {
+					this.props.actions.setSelection([]);
 				}
-			});
+				this.setState({
+					clickSelect: true,
+					clickOrigin: {
+						x: e.clientX,
+						y: e.clientY
+					},
+					clickEnd: {
+						x: e.clientX,
+						y: e.clientY
+					}
+				});
+			}
+		} else {
+			// right mouse click
 		}
 	}
 

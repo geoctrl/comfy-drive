@@ -22,21 +22,22 @@
 
 .view-grid__file {
 	margin: 5px;
-	border-radius: $border-radius;
 	cursor: default;
 	width: 110px;
 	float: left;
 	user-select: none;
+	border: solid 2px transparent;
 
 	> .view-grid__file-contain {
 		padding: 10px;
+		border-radius: $border-radius;
 
 		&.active {
-			background-color: $color-accent-400;
-		}
+			background-color: rgba($color-grey-300, .2);
 
-		&.drag {
-			background-color: transparent;
+			&.disabled {
+				background-color: $color-grey-25;
+			}
 		}
 	}
 }

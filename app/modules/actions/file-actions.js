@@ -9,6 +9,13 @@ export function selectFolder(folderId) {
 	};
 }
 
+export function updateSelection(status) {
+	return {
+		type: 'UPDATE_SELECTION',
+		data: status
+	}
+}
+
 export function setSelection(files) {
 	return {
 		type: 'SET_SELECTION',
