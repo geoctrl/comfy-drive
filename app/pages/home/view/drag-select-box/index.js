@@ -1,11 +1,11 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 
-class clickDragSelect extends React.Component {
+export default class extends React.Component {
 
 
 	render() {
 		let selectStyle = {
-			display: this.props.clickSelect ? 'block' : 'none',
+			display: this.props.dragSelect ? 'block' : 'none',
 		};
 
 		// handle drag-selection
@@ -42,9 +42,3 @@ class clickDragSelect extends React.Component {
 		return <div className="click-drag-select" style={selectStyle}></div>;
 	}
 }
-
-clickDragSelect.PropTypes = {
-
-};
-
-export default clickDragSelect;

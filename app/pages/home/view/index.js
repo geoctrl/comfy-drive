@@ -1,13 +1,18 @@
 import React, { PropTypes } from 'react';
 import ViewGrid from './view-grid';
-import ClickDragSelect from './click-drag-select';
+import DragSelectBox from './drag-select-box';
+import viewUtils from './view-utils';
 
-import _findIndex from 'lodash/findIndex';
+import _find from 'lodash/find';
 
-let doubleClickDuration = 300, // in milliseconds
+let doubleClickDuration = 300,
 		clickDuration = 100,
 		doubleClick = 0,
+
+		originId = null,
 		shiftOriginId = null,
+		dragReady = false,
+
 		shiftKey = false,
 		metaKey = false;
 
@@ -16,9 +21,7 @@ class View extends React.Component {
 		super(...props);
 
 		this.state = {
-			dragging: false,
-			fileClassName: 'view-grid__file-contain',
-			clickSelect: false,
+			dragSelect: false,
 			clickOrigin: {
 				x: 0,
 				y: 0
@@ -28,19 +31,25 @@ class View extends React.Component {
 				y: 0
 			}
 		};
+
+		document.addEventListener('keydown', this.keyPress.bind(this));
 	}
 
-	/**
-	 * get file by id
-	 * helper function to get file
-	 * @param fileId
-	 * @return {*}
-	 */
-	getFileById(fileId) {
-		return this.props.files.children.filter(child => {
-			return child.id == fileId;
-		})[0];
+	keyPress(e) {
+
+		// meta + C = COPY
+
+		// meta + V = PASTE
+
+		// meta + X = CUT
+
+		// meta + shift + D = DUPLICATE
+
+		// delete = DELETE
+
 	}
+
+
 
 	/**
 	 * click file
@@ -50,9 +59,7 @@ class View extends React.Component {
 	 */
 	clickFile(fileId, e) {
 
-
-		// wait for 2 milliseconds - is the mouse still down?
-		let newSelection = [this.getFileById(fileId)];
+		let newSelection = [_find(this.props.files.children, {id: fileId})];
 		if (metaKey) {
 			newSelection = newSelection.concat(this.props.files.selection);
 		} else if (shiftKey) {
@@ -75,7 +82,7 @@ class View extends React.Component {
 
 	// return file id from data-key attribute
 	isFile(node) {
-		if ((' '+node.className+' ').indexOf(' '+this.state.fileClassName+' ') > -1) {
+		if ((' '+node.className+' ').indexOf(' '+viewUtils.fileClassName+' ') > -1) {
 			return node.getAttribute('data');
 		} else if (node.parentNode) {
 			return this.isFile(node.parentNode);
@@ -89,65 +96,69 @@ class View extends React.Component {
 		// handle left mouse click
 		if (e.nativeEvent.which != 3) {
 
+			dragReady = true;
+
 			// keyboard bindings
 			metaKey = e.ctrlKey || e.metaKey;
 			shiftKey = e.shift;
 
 			// target file id
-			let singleFileId = this.isFile(e.target);
+			originId = this.isFile(e.target);
+
+			// if meta/shift isn't being pressed, and the origin id is not selected, set selection
+			if (originId && (!metaKey || !shiftKey) && !_find(this.props.files.selection, {id: originId})) {
+				this.clickFile(originId);
+			} else if (!originId && this.props.files.selection.length) {
+				this.props.actions.setSelection([]);
+			}
+
+			// set origins
+			this.setState({
+				clickOrigin: {
+					x: e.clientX,
+					y: e.clientY
+				},
+				clickEnd: {
+					x: e.clientX,
+					y: e.clientY
+				}
+			});
+
+			// timeout before setting drag
+			setTimeout(() => {
+				if (dragReady && !originId) {
+					this.setState({
+						dragSelect: true
+					});
+				}
+			}, clickDuration);
+
+
+
+			// dragging requires 1 of 2 things:
+			// 1: nothing is selected, and you just grab one file and start moving it around
+			// 2: if 1 or more files are selected, you have to click on one of those to drag them
+
+			// check if this is file is selected
 
 			// did you click a file?
-			if (singleFileId) {
-				// no dragging
-				this.clickFile(singleFileId, e);
-
-				// set shift origin id if nothing is selected
-				if (!this.props.files.selection.length) {
-					shiftOriginId = singleFileId;
-				}
-			} else {
-				// dragging is possible
-				// clear current selection
-				if (this.props.files.selection.length && !metaKey && !shiftKey) {
-					this.props.actions.setSelection([]);
-				}
-
-				// set origins
-				this.setState({
-					clickOrigin: {
-						x: e.clientX,
-						y: e.clientY
-					},
-					clickEnd: {
-						x: e.clientX,
-						y: e.clientY
-					}
-				});
-
-				// timeout to make sure we're dragging
-				setTimeout(() => {
-					this.setState({
-						clickSelect: true
-					})
-				}, clickDuration);
-			}
+			// if (singleFileId) {
+			// 	// no dragging
+			// 	this.clickFile(singleFileId, e);
+			//
+			// 	// set shift origin id if nothing is selected
+			// 	if (!this.props.files.selection.length) {
+			// 		shiftOriginId = singleFileId;
+			// 	}
+			// } else {
+			// 	// dragging is possible
+			//
+			// }
 		}
 	}
 
-	mouseUpHandler() {
-		metaKey = false;
-		shiftKey = false;
-
-		// make sure we don't clear this before the first timeout finishes
-		setTimeout(() => {
-			this.setState({
-				clickSelect: false
-			})
-		}, clickDuration);
-	}
-
 	mouseMoveHandler(e) {
-		if (this.state.clickSelect) {
+		if (this.state.dragSelect) {
 			this.setState({
 				clickEnd: {
 					x: e.clientX,
@@ -157,13 +168,30 @@ class View extends React.Component {
 		}
 	}
 
+	mouseUpHandler() {
+
+		// drag
+		if (this.state.dragSelect) {
+			// console.log('dragging')
+		}
+
+		// make sure we don't clear this before the mousedown timeout finishes
+		setTimeout(() => {
+			dragReady = metaKey = shiftKey = false;
+			this.setState({
+				dragSelect: false
+			})
+		}, clickDuration);
+	}
+
+
 	render() {
 		return (
 				<div className="home-view"
 				     onMouseMove={this.mouseMoveHandler.bind(this)}
 				     onMouseDown={this.mouseDownHandler.bind(this)}
 						 onMouseUp={this.mouseUpHandler.bind(this)}>
-					<ClickDragSelect { ...this.state } />
+					<DragSelectBox { ...this.state } />
 					<ViewGrid { ...this.props } parentState={ this.state } />
 				</div>
 		);
