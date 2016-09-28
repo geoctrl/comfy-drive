@@ -2,14 +2,21 @@ import React, { PropTypes } from 'react';
 import ViewGrid from './view-grid';
 import ClickDragSelect from './click-drag-select';
 
-const doubleClickDuration = 300; // in milliseconds
-let doubleClick = 0;
+import _findIndex from 'lodash/findIndex';
+
+let doubleClickDuration = 300, // in milliseconds
+		clickDuration = 100,
+		doubleClick = 0,
+		shiftOriginId = null,
+		shiftKey = false,
+		metaKey = false;
 
 class View extends React.Component {
 	constructor(...props) {
 		super(...props);
 
 		this.state = {
+			dragging: false,
 			fileClassName: 'view-grid__file-contain',
 			clickSelect: false,
 			clickOrigin: {
@@ -46,9 +53,10 @@ class View extends React.Component {
 
 		// wait for 2 milliseconds - is the mouse still down?
 		let newSelection = [this.getFileById(fileId)];
-		if (e.ctrlKey || e.metaKey) {
+		if (metaKey) {
 			newSelection = newSelection.concat(this.props.files.selection);
-			console.log(newSelection, this.props.files.selection);
+		} else if (shiftKey) {
+
 		}
 		this.props.actions.setSelection(newSelection);
 
@@ -82,30 +90,30 @@ class View extends React.Component {
 		if (e.nativeEvent.which != 3) {
 
 			// keyboard bindings
-			let ctrlKey = e.ctrlKey || e.metaKey;
-			let shiftKey = e.shift;
+			metaKey = e.ctrlKey || e.metaKey;
+			shiftKey = e.shift;
 
-			if (ctrlKey && !shiftKey) {
-				// select one-per
-
-			}  else if (shiftKey && !ctrlKey) {
-				// select in-row
-
-			} else {
-				// if drag, select
-
-				// else wait for mouse up
-
-			}
+			// target file id
 			let singleFileId = this.isFile(e.target);
+
+			// did you click a file?
 			if (singleFileId) {
+				// no dragging
 				this.clickFile(singleFileId, e);
+
+				// set shift origin id if nothing is selected
+				if (!this.props.files.selection.length) {
+					shiftOriginId = singleFileId;
+				}
 			} else {
-				if (this.props.files.selection.length) {
+				// dragging is possible
+				// clear current selection
+				if (this.props.files.selection.length && !metaKey && !shiftKey) {
 					this.props.actions.setSelection([]);
 				}
+
+				// set origins
 				this.setState({
-					clickSelect: true,
 					clickOrigin: {
 						x: e.clientX,
 						y: e.clientY
@@ -115,16 +123,27 @@ class View extends React.Component {
 						y: e.clientY
 					}
 				});
+
+				// timeout to make sure we're dragging
+				setTimeout(() => {
+					this.setState({
+						clickSelect: true
+					})
+				}, clickDuration);
 			}
-		} else {
-			// right mouse click
 		}
 	}
 
 	mouseUpHandler() {
-		this.setState({
-			clickSelect: false
-		});
+		metaKey = false;
+		shiftKey = false;
+
+		// make sure we don't clear this before the first timeout finishes
+		setTimeout(() => {
+			this.setState({
+				clickSelect: false
+			})
+		}, clickDuration);
 	}
 
 	mouseMoveHandler(e) {
