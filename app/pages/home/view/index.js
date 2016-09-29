@@ -6,8 +6,10 @@ import viewUtils from './view-utils';
 import _find from 'lodash/find';
 import _findIndex from 'lodash/findIndex';
 
-let doubleClickDuration = 200,
-		clickDuration = 100,
+const doubleClickDuration = 200,
+		clickDuration = 100;
+
+let viewAttrs = {},
 		doubleClick = 0,
 
 		originId = null,
@@ -33,18 +35,25 @@ class View extends React.Component {
 			}
 		};
 
+		this.mouseDownHandler = this.mouseDownHandler.bind(this);
+		this.mouseMoveHandler = this.mouseMoveHandler.bind(this);
+		this.mouseUpHandler = this.mouseUpHandler.bind(this);
 		document.addEventListener('keydown', this.keyPress.bind(this));
 	}
 
 	keyPress(e) {
-
 		metaKey = e.metaKey || e.ctrlKey;
 		shiftKey = e.shiftKey;
 
 		// meta + A = SELECT ALL FILES
-		if (e.which == 65 && metaKey) {
+		if (e.which == 65 && metaKey && !shiftKey) {
 			e.preventDefault();
 			this.props.actions.setSelection(this.props.files.children);
+		}
+		// meta + shift + A = DESELECT ALL FILES
+		else if (e.which == 65 && metaKey && shiftKey) {
+			e.preventDefault();
+			this.props.actions.setSelection([]);
 		}
 		// meta + C = COPY
 		else if (e.which == 67 && metaKey) {
@@ -81,6 +90,10 @@ class View extends React.Component {
 			e.preventDefault();
 			console.log('delete')
 		}
+	}
+
+	timeOut(doThis) {
+		return window.setTimeout(doThis, clickDuration);
 	}
 
 
@@ -157,13 +170,13 @@ class View extends React.Component {
 
 
 	mouseDownHandler(e) {
+		e.persist();
 		// handle left mouse click
 		if (e.nativeEvent.which != 3) {
 
 			dragReady = true;
 
 			// keyboard bindings
-			metaKey = shiftKey = false; // reset from last click
 			metaKey = e.ctrlKey || e.metaKey;
 			shiftKey = e.shiftKey;
 
@@ -183,13 +196,13 @@ class View extends React.Component {
 			});
 
 			// timeout before setting drag
-			setTimeout(() => {
+			this.timeOut(() => {
 				if (dragReady && !originId) {
 					this.setState({
 						dragSelect: true
 					});
 				}
-			}, clickDuration);
+			});
 		}
 	}
 
@@ -214,25 +227,33 @@ class View extends React.Component {
 			this.clickFile(originId);
 		} else {
 			// no file selected - clear out
-			this.props.actions.setSelection([]);
+			if (!!this.props.files.selection.length) {
+				this.props.actions.setSelection([]);
+			}
 		}
 
 		// make sure we don't clear this before the mousedown timeout finishes
-		setTimeout(() => {
+		this.timeOut(() => {
 			dragReady = false;
 			this.setState({
 				dragSelect: false
 			})
-		}, clickDuration);
+		});
 	}
 
 
 	render() {
+		viewAttrs = {
+			onMouseDown: this.mouseDownHandler,
+			onMouseUp: this.mouseUpHandler,
+			className: 'home-view'
+		};
+		if (this.state.dragSelect) {
+			viewAttrs.onMouseMove = this.mouseMoveHandler;
+		}
+
 		return (
-				<div className="home-view"
-				     onMouseMove={this.mouseMoveHandler.bind(this)}
-				     onMouseDown={this.mouseDownHandler.bind(this)}
-						 onMouseUp={this.mouseUpHandler.bind(this)}>
+				<div { ...viewAttrs }>
 					<DragSelectBox { ...this.state } />
 					<ViewGrid { ...this.props } parentState={ this.state } />
 				</div>

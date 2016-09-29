@@ -35,13 +35,13 @@ export default class App extends React.Component {
 	}
 }
 
-function mapStateToProps(state) {
+const mapStateToProps = state =>{
 	return { files: state.filesReducer };
-}
+};
 
-function mapDispatchToProps(dispatch) {
+const mapDispatchToProps = dispatch => {
 	return { actions: bindActionCreators(fileActions, dispatch) };
-}
+};
 
 export default connect(
 		mapStateToProps,
