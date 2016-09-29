@@ -4,13 +4,14 @@ import DragSelectBox from './drag-select-box';
 import viewUtils from './view-utils';
 
 import _find from 'lodash/find';
+import _findIndex from 'lodash/findIndex';
 
-let doubleClickDuration = 300,
+let doubleClickDuration = 200,
 		clickDuration = 100,
 		doubleClick = 0,
 
 		originId = null,
-		shiftOriginId = null,
+		shiftOriginIndex = null,
 		dragReady = false,
 
 		shiftKey = false,
@@ -37,16 +38,49 @@ class View extends React.Component {
 
 	keyPress(e) {
 
+		metaKey = e.metaKey || e.ctrlKey;
+		shiftKey = e.shiftKey;
+
+		// meta + A = SELECT ALL FILES
+		if (e.which == 65 && metaKey) {
+			e.preventDefault();
+			this.props.actions.setSelection(this.props.files.children);
+		}
 		// meta + C = COPY
-
+		else if (e.which == 67 && metaKey) {
+			e.preventDefault();
+			console.log('copy')
+		}
 		// meta + V = PASTE
-
+		else if (e.which == 86 && metaKey) {
+			e.preventDefault();
+			console.log('paste')
+		}
 		// meta + X = CUT
-
-		// meta + shift + D = DUPLICATE
-
+		else if (e.which == 88 && metaKey) {
+			e.preventDefault();
+			console.log('cut')
+		}
+		// meta + S = SAVE
+		else if (e.which == 83 && metaKey) {
+			e.preventDefault();
+			console.log('save')
+		}
+		// meta + Z = UNDO
+		else if (e.which == 90 && metaKey && !shiftKey) {
+			e.preventDefault();
+			console.log('undo')
+		}
+		// meta + shift + Z = REDO
+		else if (e.which == 90 && metaKey && shiftKey) {
+			e.preventDefault();
+			console.log('redo')
+		}
 		// delete = DELETE
-
+		else if (e.which == 46 && metaKey) {
+			e.preventDefault();
+			console.log('delete')
+		}
 	}
 
 
@@ -59,24 +93,54 @@ class View extends React.Component {
 	 */
 	clickFile(fileId, e) {
 
-		let newSelection = [_find(this.props.files.children, {id: fileId})];
-		if (metaKey) {
-			newSelection = newSelection.concat(this.props.files.selection);
-		} else if (shiftKey) {
-
-		}
-		this.props.actions.setSelection(newSelection);
-
+		// single click
 		if (doubleClick === 0) {
-			// single click
+			let fileIsSelected = !!_find(this.props.files.selection, {id: fileId});
+			let file = _find(this.props.files.children, {id: fileId});
+			let newSelection = [];
+
+			// meta key only click
+			if (metaKey && !shiftKey) {
+				if (fileIsSelected) {
+					newSelection = this.props.files.selection.filter(file => file.id != fileId);
+				} else {
+					newSelection = this.props.files.selection.concat([file]);
+				}
+
+			// shift key only click
+			} else if (shiftKey && !metaKey) {
+				let shiftCurrentIndex = _findIndex(this.props.files.children, {id: fileId});
+				// select all files before or after index (including current and saved indexes)
+				if (shiftCurrentIndex < shiftOriginIndex) {
+					newSelection = this.props.files.children.filter((file, i) => {
+						return i >= shiftCurrentIndex && i <= shiftOriginIndex;
+					});
+				} else if (shiftCurrentIndex > shiftOriginIndex) {
+					newSelection = this.props.files.children.filter((file, i) => {
+						return i <= shiftCurrentIndex && i >= shiftOriginIndex;
+					});
+				} else if (shiftCurrentIndex === shiftOriginIndex) {
+					newSelection = [file];
+				}
+
+			// regular click
+			} else {
+				shiftOriginIndex = _findIndex(this.props.files.children, {id: fileId});
+				newSelection = [file];
+			}
+
+			// update selection
+			this.props.actions.setSelection(newSelection);
+
+			// set timeout for double click possibility
 			setTimeout(() => {
 				doubleClick--;
 			}, doubleClickDuration);
 			doubleClick++;
-		} else {
+
+		} else if (!metaKey && !shiftKey) {
 			// double click
 			console.log('double click')
-
 		}
 	}
 
@@ -99,18 +163,12 @@ class View extends React.Component {
 			dragReady = true;
 
 			// keyboard bindings
+			metaKey = shiftKey = false; // reset from last click
 			metaKey = e.ctrlKey || e.metaKey;
-			shiftKey = e.shift;
+			shiftKey = e.shiftKey;
 
 			// target file id
 			originId = this.isFile(e.target);
-
-			// if meta/shift isn't being pressed, and the origin id is not selected, set selection
-			if (originId && (!metaKey || !shiftKey) && !_find(this.props.files.selection, {id: originId})) {
-				this.clickFile(originId);
-			} else if (!originId && this.props.files.selection.length) {
-				this.props.actions.setSelection([]);
-			}
 
 			// set origins
 			this.setState({
@@ -132,32 +190,11 @@ class View extends React.Component {
 					});
 				}
 			}, clickDuration);
-
-
-
-			// dragging requires 1 of 2 things:
-			// 1: nothing is selected, and you just grab one file and start moving it around
-			// 2: if 1 or more files are selected, you have to click on one of those to drag them
-
-			// check if this is file is selected
-
-			// did you click a file?
-			// if (singleFileId) {
-			// 	// no dragging
-			// 	this.clickFile(singleFileId, e);
-			//
-			// 	// set shift origin id if nothing is selected
-			// 	if (!this.props.files.selection.length) {
-			// 		shiftOriginId = singleFileId;
-			// 	}
-			// } else {
-			// 	// dragging is possible
-			//
-			// }
 		}
 	}
 
 	mouseMoveHandler(e) {
+		// if drag selection, update end origins
 		if (this.state.dragSelect) {
 			this.setState({
 				clickEnd: {
@@ -169,15 +206,20 @@ class View extends React.Component {
 	}
 
 	mouseUpHandler() {
-
-		// drag
+		// handle drag select
 		if (this.state.dragSelect) {
-			// console.log('dragging')
+
+		} else if (originId) {
+			// handle click
+			this.clickFile(originId);
+		} else {
+			// no file selected - clear out
+			this.props.actions.setSelection([]);
 		}
 
 		// make sure we don't clear this before the mousedown timeout finishes
 		setTimeout(() => {
-			dragReady = metaKey = shiftKey = false;
+			dragReady = false;
 			this.setState({
 				dragSelect: false
 			})
