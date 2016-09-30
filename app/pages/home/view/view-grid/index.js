@@ -1,8 +1,10 @@
 import React, { PropTypes } from 'react';
 import Icon from '../../../../components/icons';
-import _find from 'lodash/find';
 import ViewClass from '../view-class';
 import ViewGridName from './view-grid-name';
+
+import _find from 'lodash/find';
+import _isEqual from 'lodash/isEqual';
 
 
 class ViewGrid extends React.Component {
@@ -41,15 +43,22 @@ class ViewGrid extends React.Component {
 		e.preventDefault();
 	}
 
+	componentDidUpdate() {
+		console.log('here')
+		this.props.updateFileRefs(this.refs);
+	}
+
+	shouldComponentUpdate(nextProps) {
+		return !_isEqual(this.props.files.children, nextProps.files.children) ||
+				!_isEqual(this.props.files.selection, nextProps.files.selection);
+	}
+
 
 	render() {
-
-		console.log('render')
-
 		return (
 				<div className="view-grid">
 					{ this.props.files.children.map(file => (
-							<div className="view-grid__file" key={file.id}>
+							<div className="view-grid__file" key={file.id} ref={file.id}>
 								<div className={`view-grid__file-contain ${_find(this.props.files.selection, {id: file.id}) ? 'active': ''}`}
 								     draggable={true}
 								     data={file.id}

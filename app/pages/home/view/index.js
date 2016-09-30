@@ -5,6 +5,10 @@ import viewUtils from './view-utils';
 
 import _find from 'lodash/find';
 import _findIndex from 'lodash/findIndex';
+import _throttle from 'lodash/throttle';
+import _forIn from 'lodash/forIn';
+import _isEqual from 'lodash/isEqual';
+
 
 const doubleClickDuration = 200,
 		clickDuration = 100;
@@ -17,7 +21,9 @@ let viewAttrs = {},
 		dragReady = false,
 
 		shiftKey = false,
-		metaKey = false;
+		metaKey = false,
+
+		fileRefs = [];
 
 class View extends React.Component {
 	constructor(...props) {
@@ -38,6 +44,7 @@ class View extends React.Component {
 		this.mouseDownHandler = this.mouseDownHandler.bind(this);
 		this.mouseMoveHandler = this.mouseMoveHandler.bind(this);
 		this.mouseUpHandler = this.mouseUpHandler.bind(this);
+		this.updateFileRefs = this.updateFileRefs.bind(this);
 		document.addEventListener('keydown', this.keyPress.bind(this));
 	}
 
@@ -206,9 +213,37 @@ class View extends React.Component {
 		}
 	}
 
+	dragCheck =_throttle(() => {
+		let newSelection = [];
+
+		_forIn(fileRefs, (file, fileId) => {
+			let coords = file.getBoundingClientRect();
+
+			// check if originX is smaller then file.left
+			// check if endX is larger then file.left
+			if (this.state.clickOrigin.x < coords.left && this.state.clickEnd.x > coords.left) {
+				newSelection.push(_find(this.props.files.children, {id: fileId}));
+			}
+
+			// check if originY is smaller then file.top
+			// check if endY is larger then file.top
+			// if (this.state.clickOrigin.y < coords.top) {
+			// }
+
+			// console.log(coords);
+		});
+
+		if (!_isEqual(newSelection, this.props.files.selection)) {
+			this.props.actions.setSelection(newSelection);
+		}
+
+	}, 50);
+
+
 	mouseMoveHandler(e) {
 		// if drag selection, update end origins
 		if (this.state.dragSelect) {
+			this.dragCheck();
 			this.setState({
 				clickEnd: {
 					x: e.clientX,
@@ -241,6 +276,10 @@ class View extends React.Component {
 		});
 	}
 
+	updateFileRefs(refs) {
+		fileRefs = refs;
+	}
+
 
 	render() {
 		viewAttrs = {
@@ -255,7 +294,7 @@ class View extends React.Component {
 		return (
 				<div { ...viewAttrs }>
 					<DragSelectBox { ...this.state } />
-					<ViewGrid { ...this.props } parentState={ this.state } />
+					<ViewGrid { ...this.props } updateFileRefs={this.updateFileRefs} />
 				</div>
 		);
 	}
