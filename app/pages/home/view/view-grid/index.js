@@ -44,15 +44,8 @@ class ViewGrid extends React.Component {
 	}
 
 	componentDidUpdate() {
-		console.log('here')
 		this.props.updateFileRefs(this.refs);
 	}
-
-	shouldComponentUpdate(nextProps) {
-		return !_isEqual(this.props.files.children, nextProps.files.children) ||
-				!_isEqual(this.props.files.selection, nextProps.files.selection);
-	}
-
 
 	render() {
 		return (

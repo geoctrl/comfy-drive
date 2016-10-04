@@ -6,7 +6,7 @@ import storeConfig from './core/store-config';
 import { Provider } from 'react-redux';
 import { Router, Route, browserHistory} from 'react-router';
 
-import App from './pages/home';
+import Home from './pages/home';
 import Login from './pages/login';
 import Admin from './pages/admin';
 import iconMaster from './components/icons/master.svg';
@@ -18,7 +18,7 @@ const Root = ({store}) => (
 			<Provider store={store}>
 				<div>
 					<Router history={ browserHistory }>
-						<Route path="/" component={App} />
+						<Route path="/" component={Home} />
 						<Route path="/login" component={Login} />
 						<Route path="/admin" component={Admin} />
 					</Router>

@@ -93,14 +93,10 @@ class View extends React.Component {
 			console.log('redo')
 		}
 		// delete = DELETE
-		else if (e.which == 46 && metaKey) {
+		else if (e.which == 46) {
 			e.preventDefault();
 			console.log('delete')
 		}
-	}
-
-	timeOut(doThis) {
-		return window.setTimeout(doThis, clickDuration);
 	}
 
 
@@ -113,55 +109,43 @@ class View extends React.Component {
 	 */
 	clickFile(fileId, e) {
 
-		// single click
-		if (doubleClick === 0) {
-			let fileIsSelected = !!_find(this.props.files.selection, {id: fileId});
-			let file = _find(this.props.files.children, {id: fileId});
-			let newSelection = [];
+		let fileIsSelected = !!_find(this.props.files.selection, {id: fileId});
+		let file = _find(this.props.files.children, {id: fileId});
+		let newSelection = [];
 
-			// meta key only click
-			if (metaKey && !shiftKey) {
-				if (fileIsSelected) {
-					newSelection = this.props.files.selection.filter(file => file.id != fileId);
-				} else {
-					newSelection = this.props.files.selection.concat([file]);
-				}
+		// meta key only click
+		if (metaKey && !shiftKey) {
+			if (fileIsSelected) {
+				newSelection = this.props.files.selection.filter(file => file.id != fileId);
+			} else {
+				newSelection = this.props.files.selection.concat([file]);
+			}
 
 			// shift key only click
-			} else if (shiftKey && !metaKey) {
-				let shiftCurrentIndex = _findIndex(this.props.files.children, {id: fileId});
-				// select all files before or after index (including current and saved indexes)
-				if (shiftCurrentIndex < shiftOriginIndex) {
-					newSelection = this.props.files.children.filter((file, i) => {
-						return i >= shiftCurrentIndex && i <= shiftOriginIndex;
-					});
-				} else if (shiftCurrentIndex > shiftOriginIndex) {
-					newSelection = this.props.files.children.filter((file, i) => {
-						return i <= shiftCurrentIndex && i >= shiftOriginIndex;
-					});
-				} else if (shiftCurrentIndex === shiftOriginIndex) {
-					newSelection = [file];
-				}
-
-			// regular click
-			} else {
-				shiftOriginIndex = _findIndex(this.props.files.children, {id: fileId});
+		} else if (shiftKey && !metaKey) {
+			let shiftCurrentIndex = _findIndex(this.props.files.children, {id: fileId});
+			// select all files before or after index (including current and saved indexes)
+			if (shiftCurrentIndex < shiftOriginIndex) {
+				newSelection = this.props.files.children.filter((file, i) => {
+					return i >= shiftCurrentIndex && i <= shiftOriginIndex;
+				});
+			} else if (shiftCurrentIndex > shiftOriginIndex) {
+				newSelection = this.props.files.children.filter((file, i) => {
+					return i <= shiftCurrentIndex && i >= shiftOriginIndex;
+				});
+			} else if (shiftCurrentIndex === shiftOriginIndex) {
 				newSelection = [file];
 			}
 
-			// update selection
-			this.props.actions.setSelection(newSelection);
-
-			// set timeout for double click possibility
-			setTimeout(() => {
-				doubleClick--;
-			}, doubleClickDuration);
-			doubleClick++;
-
-		} else if (!metaKey && !shiftKey) {
-			// double click
-			console.log('double click')
+			// regular click
+		} else {
+			shiftOriginIndex = _findIndex(this.props.files.children, {id: fileId});
+			newSelection = [file];
 		}
+
+		// update selection
+		this.props.actions.setSelection(newSelection);
+
 	}
 
 	// return file id from data-key attribute
@@ -203,13 +187,13 @@ class View extends React.Component {
 			});
 
 			// timeout before setting drag
-			this.timeOut(() => {
+			setTimeout(() => {
 				if (dragReady && !originId) {
 					this.setState({
 						dragSelect: true
 					});
 				}
-			});
+			}, clickDuration);
 		}
 	}
 
@@ -256,24 +240,21 @@ class View extends React.Component {
 	mouseUpHandler() {
 		// handle drag select
 		if (this.state.dragSelect) {
+			console.log('drag state')
 
 		} else if (originId) {
 			// handle click
+			console.log('origin id')
 			this.clickFile(originId);
 		} else {
 			// no file selected - clear out
-			if (!!this.props.files.selection.length) {
-				this.props.actions.setSelection([]);
-			}
+			this.props.actions.setSelection([]);
 		}
 
-		// make sure we don't clear this before the mousedown timeout finishes
-		this.timeOut(() => {
-			dragReady = false;
-			this.setState({
-				dragSelect: false
-			})
-		});
+		dragReady = false;
+		this.setState({
+			dragSelect: false
+		})
 	}
 
 	updateFileRefs(refs) {

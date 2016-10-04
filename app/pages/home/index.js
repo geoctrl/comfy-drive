@@ -8,14 +8,6 @@ import Header from './header';
 import View from './view';
 
 export default class App extends React.Component {
-	constructor() {
-		super();
-
-		this.state = {
-
-		};
-	}
-
 
 	// TODO: we need to authorize access before rendering
 
@@ -24,7 +16,6 @@ export default class App extends React.Component {
 	}
 
 	render() {
-		let { files } = this.props;
 		return (
 				<div className="app">
 					<ReactTooltip effect="solid" class={'view-toolbar__tooltip'} place="top" />
