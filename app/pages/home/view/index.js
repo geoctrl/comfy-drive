@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import ViewGrid from './view-grid';
 import DragSelectBox from './drag-select-box';
-import viewUtils from './view-utils';
+import * as viewUtils from './view-utils';
 
 import _find from 'lodash/find';
 import _findIndex from 'lodash/findIndex';
@@ -197,24 +197,48 @@ class View extends React.Component {
 		}
 	}
 
-	dragCheck =_throttle(() => {
+	dragCheck = _throttle(() => {
 		let newSelection = [];
 
 		_forIn(fileRefs, (file, fileId) => {
-			let coords = file.getBoundingClientRect();
+			let coords = file.firstElementChild.getBoundingClientRect();
 
-			// check if originX is smaller then file.left
-			// check if endX is larger then file.left
-			if (this.state.clickOrigin.x < coords.left && this.state.clickEnd.x > coords.left) {
-				newSelection.push(_find(this.props.files.children, {id: fileId}));
+			// South East
+			if (this.state.clickOrigin.x < this.state.clickEnd.x && this.state.clickOrigin.y < this.state.clickEnd.y) {
+				if (coords.top < this.state.clickEnd.y &&
+						coords.left < this.state.clickEnd.x &&
+						coords.right > this.state.clickOrigin.x &&
+						coords.bottom > this.state.clickOrigin.y) {
+					newSelection.push(_find(this.props.files.children, {id: fileId}));
+				}
+
+			// South West
+			} else if (this.state.clickOrigin.x > this.state.clickEnd.x && this.state.clickOrigin.y < this.state.clickEnd.y) {
+				if (coords.top < this.state.clickEnd.y &&
+						coords.right > this.state.clickEnd.x &&
+						coords.left < this.state.clickOrigin.x &&
+						coords.bottom > this.state.clickOrigin.y) {
+					newSelection.push(_find(this.props.files.children, {id: fileId}));
+				}
+
+			// North East
+			} else if (this.state.clickOrigin.x < this.state.clickEnd.x && this.state.clickOrigin.y > this.state.clickEnd.y) {
+				if (coords.bottom > this.state.clickEnd.y &&
+						coords.left < this.state.clickEnd.x &&
+						coords.right > this.state.clickOrigin.x &&
+						coords.top < this.state.clickOrigin.y) {
+					newSelection.push(_find(this.props.files.children, {id: fileId}));
+				}
+
+			// North East
+			} else if (this.state.clickOrigin.x > this.state.clickEnd.x && this.state.clickOrigin.y > this.state.clickEnd.y) {
+				if (coords.bottom > this.state.clickEnd.y &&
+						coords.right > this.state.clickEnd.x &&
+						coords.left < this.state.clickOrigin.x &&
+						coords.top < this.state.clickOrigin.y) {
+					newSelection.push(_find(this.props.files.children, {id: fileId}));
+				}
 			}
-
-			// check if originY is smaller then file.top
-			// check if endY is larger then file.top
-			// if (this.state.clickOrigin.y < coords.top) {
-			// }
-
-			// console.log(coords);
 		});
 
 		if (!_isEqual(newSelection, this.props.files.selection)) {

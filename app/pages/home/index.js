@@ -7,7 +7,7 @@ import ReactTooltip from 'react-tooltip';
 import Header from './header';
 import View from './view';
 
-export default class App extends React.Component {
+class App extends React.Component {
 
 	// TODO: we need to authorize access before rendering
 

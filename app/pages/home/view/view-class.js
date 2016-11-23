@@ -1,4 +1,4 @@
-import viewUtils from './view-utils';
+import * as viewUtils from './view-utils';
 
 let fileHoverCount = 0;
 
