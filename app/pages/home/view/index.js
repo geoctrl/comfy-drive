@@ -10,8 +10,9 @@ import _forIn from 'lodash/forIn';
 import _isEqual from 'lodash/isEqual';
 
 
-const doubleClickDuration = 200,
-		clickDuration = 100;
+const doubleClickDuration = 200,	// max time allowed between clicks
+		clickDuration = 200,		// allowed time between mouse down and up
+		minimumMovement = 5;		// movement required before dragSelect works
 
 let viewAttrs = {},
 		doubleClick = 0,
@@ -173,6 +174,7 @@ class View extends React.Component {
 
 			// target file id
 			originId = this.isFile(e.target);
+			console.log(originId);
 
 			// set origins
 			this.setState({
@@ -263,7 +265,7 @@ class View extends React.Component {
 
 	mouseUpHandler() {
 		// handle drag select
-		if (this.state.dragSelect) {
+		if (this.state.dragSelect && this.endEqualsOrigin()) {
 			console.log('drag state')
 
 		} else if (originId) {
@@ -272,6 +274,7 @@ class View extends React.Component {
 			this.clickFile(originId);
 		} else {
 			// no file selected - clear out
+			console.log('clear out')
 			this.props.actions.setSelection([]);
 		}
 
@@ -283,6 +286,11 @@ class View extends React.Component {
 
 	updateFileRefs(refs) {
 		fileRefs = refs;
+	}
+
+	endEqualsOrigin() {
+		return this.state.clickOrigin.x == this.state.clickEnd.x &&
+			this.state.clickOrigin.y == this.state.clickEnd.y;
 	}
 
 
